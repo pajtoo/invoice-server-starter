@@ -31,40 +31,40 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/persons")
 public class PersonController {
 
     @Autowired
     private PersonService personService;
 
-    @PostMapping({"/persons", "/persons/"})
+    @PostMapping({"", "/"})
     public PersonDTO addPerson(@RequestBody PersonDTO personDTO) {
         return  personService.addPerson(personDTO);
     }
 
-    @GetMapping({"/persons", "/persons/"})
+    @GetMapping({"", "/"})
     public List<PersonDTO> getPersons() {
         return personService.getAll();
     }
 
-    @DeleteMapping({"/persons/{personId}", "/persons/{personId}/"})
+    @DeleteMapping({"/{personId}", "/{personId}/"})
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deletePerson(@PathVariable long personId) {
         personService.removePerson(personId);
     }
 
-    @GetMapping({"/persons/{personId}", "/persons/{personId}/"})
+    @GetMapping({"/{personId}", "/{personId}/"})
     public PersonDTO getPerson(@PathVariable long personId) {
         return personService.getPersonById(personId);
     }
 
-    @PutMapping({"/persons/{personId}", "/persons/{personId}/"})
+    @PutMapping({"/{personId}", "/{personId}/"})
     public PersonDTO updatePerson(@PathVariable long personId, @RequestBody PersonDTO personDTO) {
         return personService.updatePerson(personId, personDTO);
 
     }
 
-    @GetMapping({"/persons/statistics", "/persons/statistics/"})
+    @GetMapping({"/statistics", "/statistics/"})
     public List<PersonStatisticsDTO> getPersonsStatistics() {
         return personService.getPersonsStatistics();
     }
