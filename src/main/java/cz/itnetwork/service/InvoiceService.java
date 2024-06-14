@@ -1,5 +1,6 @@
 package cz.itnetwork.service;
 
+import cz.itnetwork.dto.BatchOperationsDTO;
 import cz.itnetwork.dto.InvoiceDTO;
 import cz.itnetwork.dto.InvoiceStatisticsDTO;
 import cz.itnetwork.entity.filter.InvoiceFilter;
@@ -57,6 +58,12 @@ public interface InvoiceService {
      * @param id ID of invoice to remove
      */
     void removeInvoice(long id);
+
+    /**
+     * Removes user selected invoices
+     * @param batchOperationsDTO DTO containing selected IDs and a total number of batches
+     */
+    void removeSelectedInvoices(BatchOperationsDTO batchOperationsDTO);
 
     /**
      * Gets invoice statistics

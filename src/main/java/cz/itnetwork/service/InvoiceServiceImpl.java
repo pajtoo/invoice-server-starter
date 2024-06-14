@@ -1,5 +1,6 @@
 package cz.itnetwork.service;
 
+import cz.itnetwork.dto.BatchOperationsDTO;
 import cz.itnetwork.dto.InvoiceDTO;
 import cz.itnetwork.dto.InvoiceStatisticsDTO;
 import cz.itnetwork.dto.mapper.InvoiceMapper;
@@ -87,6 +88,11 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Override
     public void removeInvoice(long id) {
         invoiceRepository.deleteById(id);
+    }
+
+    @Override
+    public void removeSelectedInvoices(BatchOperationsDTO batchOperationsDTO) {
+        List<Integer>
     }
 
     @Override

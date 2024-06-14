@@ -1,5 +1,6 @@
 package cz.itnetwork.controller;
 
+import cz.itnetwork.dto.BatchOperationsDTO;
 import cz.itnetwork.dto.InvoiceDTO;
 import cz.itnetwork.dto.InvoiceStatisticsDTO;
 import cz.itnetwork.entity.filter.InvoiceFilter;
@@ -51,6 +52,12 @@ public class InvoiceController {
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteInvoice(@PathVariable long id){
         invoiceService.removeInvoice(id);
+    }
+
+    @DeleteMapping({"/invoices", "/invoices/"})
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void deleteSelectedInvoices(@RequestBody BatchOperationsDTO batchOperationsDTO) {
+
     }
 
     @GetMapping({"/invoices/statistics", "/invoices/statistics/"})
