@@ -1,0 +1,9 @@
+Tuto API dokumentaci vytvářím jako vlastní nadstavbu nad původní API dokumentací od ITnetwork.
+
+Aplikace bude umět hromadné zpracování označených položek. Pro zachování dobrého výkonu aplikace v případě velkého množství označených položek budou položky odesílány v dávkách po 20. Bude umožněno mazání, export a tisk vybraných položek.
+
+Pro hromadné zpracování položek bude server dostávat JSON ve formátu:
+{
+"totalBatches": number,
+"ids": [numbers]
+}
